@@ -1,3 +1,3 @@
 FROM ubuntu
 
-RUN apt install vim
+RUN apt install vim -y
