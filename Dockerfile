@@ -1,3 +1,4 @@
 FROM ubuntu
 
-RUN apt install -y vim
+RUN apt update 
+RUN apt search vim 
