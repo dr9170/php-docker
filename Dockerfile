@@ -1,4 +1,4 @@
 FROM ubuntu
 
 RUN apt update 
-RUN apt search vim 
+RUN apt install make -y 
