@@ -1,4 +1,3 @@
-FROM ubuntu
-
-RUN apt update 
-RUN apt install make -y 
+FROM php:7.2-apache
+RUN apt update
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
