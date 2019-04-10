@@ -1,3 +1,4 @@
-FROM rundeck/rundeck
+FROM ubuntu
 
-RUN apt install vim
+RUN apt update 
+RUN apt install make -y 
