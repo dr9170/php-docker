@@ -23,8 +23,8 @@ phases:
       - printf '[{"name":"confeapp","imageUri":"%s"}]' 810157741463.dkr.ecr.us-east-1.amazonaws.com/php-mysql-confe:latest > imagedefinitions.json
       - cat imagedefinitions.json
 
-  artifacts:
-    files: imagedefinitions.json
-    finally:
-      - echo This always runs even if the update or install command fails 
+artifacts:
+  files: imagedefinitions.json
+   finally:
+     - echo This always runs even if the update or install command fails 
 
