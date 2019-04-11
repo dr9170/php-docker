@@ -24,7 +24,6 @@ phases:
       - cat imagedefinitions.json
 
 artifacts:
-  files: imagedefinitions.json
-   finally:
-     - echo This always runs even if the update or install command fails 
-
+    files: imagedefinitions.json
+    finally:
+      - echo This always runs even if the update or install command fails
