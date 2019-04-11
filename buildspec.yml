@@ -12,3 +12,8 @@ phases:
       - apt-get install -y nano
     finally:
       - echo This always runs even if the update or install command fails 
+    post_build:
+
+    commands:
+      - aws s3 sync --delete build/ s3://codepipeline-us-east-1-722052581556 --acl public-read
+
