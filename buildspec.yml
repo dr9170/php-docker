@@ -14,7 +14,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t 810157741463.dkr.ecr.us-east-1.amazonaws.com/php-mysql-confe:latest .
+      - docker build -t 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:latest .
   post_build:
     commands:
       - echo Build completed on `date`
