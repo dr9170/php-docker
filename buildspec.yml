@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    VERSION: `date`
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
 
 phases:
   install:
@@ -14,16 +14,16 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:$VERSION .
+      - docker build -t 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:$CODEBUILD_SOURCE_VERSION .
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:$VERSION
-      - printf '[{"name":"confeapp","imageUri":"%s"}]' 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:$VERSION > imagedefinitions.json
+      - docker push 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:$CODEBUILD_SOURCE_VERSION
+      - printf '[{"name":"confeapp","imageUri":"%s"}]' 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:$CODEBUILD_SOURCE_VERSION > imagedefinitions.json
       - cat imagedefinitions.json
 
 artifacts:
     files: imagedefinitions.json
     finally:
-      - echo This always runs even if the update or install command fails
+- echo This always runs even if the update or install command fails
