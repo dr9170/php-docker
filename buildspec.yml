@@ -12,15 +12,16 @@ phases:
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
   build:
     commands:
+      - echo $CODEBUILD_SOURCE_VERSION
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:$CODEBUILD_SOURCE_VERSION .
+      - docker build -t 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:latest.
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:$CODEBUILD_SOURCE_VERSION
-      - printf '[{"name":"confeapp","imageUri":"%s"}]' 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:$CODEBUILD_SOURCE_VERSION > imagedefinitions.json
+      - docker push 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:latest
+      - printf '[{"name":"confeapp","imageUri":"%s"}]' 862400819811.dkr.ecr.us-east-1.amazonaws.com/php-mysql:latest > imagedefinitions.json
       - cat imagedefinitions.json
 
 artifacts:
